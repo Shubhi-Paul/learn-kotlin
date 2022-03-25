@@ -28,4 +28,12 @@ fun main(var_name : data_type,var_name : data_type ) {
     else if
     else
 
-Earlier, you learned that every Kotlin program must have a main() function. Android apps operate differently. Instead of calling a main() function, the Android system calls the onCreate() method of your MainActivity when your app is opened for the first time.
+Earlier, you learned that every Kotlin program must have a main() function. 
+Android apps operate differently. 
+Instead of calling a main() function, the Android system calls the onCreate() 
+method of your MainActivity when your app is opened for the first time.
+
+Android provides a framework of numerous classes to make writing Android apps easier,
+but it needs to know exactly which class you mean. You can specify which class in the 
+framework to use in your code by using an import statement. 
+For example, the Button class is defined in android.widget.Button.
