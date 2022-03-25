@@ -1,0 +1,29 @@
+> All Kotlin programs need to have a main() function
+
+fun main(var_name : data_type,var_name : data_type ) {
+    var age = 18
+    println("Happy Birthday Shubhi")
+    println("You are already ${age}!")
+}
+
+> fun stands for function. 
+> main is the name of this function.
+> comment //
+> constants : 
+    val age = "5"
+
+> variable : 
+    var roll = "6"
+    var rolledValue: Int = 4
+
+> loop :
+    repeat(number)
+
+> print 
+    println \n = one full blank line
+    print \n = next line
+
+> condition statement
+    if 
+    else if
+    else
