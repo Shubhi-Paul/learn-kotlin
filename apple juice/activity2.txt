@@ -1,0 +1,32 @@
+package com.example.applejuice
+
+import android.annotation.SuppressLint
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import com.example.applejuice.databinding.ActivityMain2Binding
+
+class MainActivity2 : AppCompatActivity() {
+    private lateinit var binding: ActivityMain2Binding
+    @SuppressLint("SetTextI18n")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val count = intent.getIntExtra("squeeze_count", 7)
+
+        val text = "TAP ON APPLE $count TIMES"
+        binding.countText.text = text
+
+        var counter = 0
+        binding.appleSliced.setOnClickListener{
+            counter += 1
+            if (counter == count) {
+                binding.appleSliced.visibility = View.INVISIBLE
+                binding.countText.text = "THE END"
+  
+            }
+        }
+    }
+}

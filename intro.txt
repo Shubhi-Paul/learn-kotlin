@@ -50,3 +50,6 @@ There are many assertions in the JUnit library. Some common assertions you might
 
 An app can technically run more than one Kotlin function at once.
 This is possible because of something called threads.
+
+val intent = Intent(this,SomeActivity::class.java)
+startActivity(intent)
