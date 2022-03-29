@@ -1,0 +1,29 @@
+package com.example.applejuice
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.applejuice.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.apply {
+            apple1.setOnClickListener { squeeze() }
+            apple2.setOnClickListener { squeeze() }
+            apple3.setOnClickListener { squeeze() }
+        }
+
+    }
+
+    private fun squeeze() {
+            val count = (1..6).random()
+            binding.mainText.text = count.toString()
+        }
+}
+
+

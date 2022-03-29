@@ -37,3 +37,16 @@ Android provides a framework of numerous classes to make writing Android apps ea
 but it needs to know exactly which class you mean. You can specify which class in the 
 framework to use in your code by using an import statement. 
 For example, the Button class is defined in android.widget.Button.
+
+There are many assertions in the JUnit library. Some common assertions you might encounter are:
+
+    assertEquals()
+    assertNotEquals()
+    assertThat()
+    assertTrue()
+    assertFalse()
+    assertNull()
+    assertNotNull()
+
+An app can technically run more than one Kotlin function at once.
+This is possible because of something called threads.

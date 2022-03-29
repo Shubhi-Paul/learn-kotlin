@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/apple_tree"
+        android:layout_width="411dp"
+        android:layout_height="731dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/small_tree_icon_7692" />
+
+    <ImageView
+        android:id="@+id/apple1"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="252dp"
+        app:layout_constraintStart_toStartOf="@+id/apple_tree"
+        app:layout_constraintTop_toTopOf="@+id/apple_tree"
+        app:srcCompat="@drawable/apple" />
+
+    <ImageView
+        android:id="@+id/apple2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/apple_tree"
+        app:srcCompat="@drawable/apple" />
+
+    <ImageView
+        android:id="@+id/apple3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginEnd="108dp"
+        app:layout_constraintEnd_toEndOf="@+id/apple_tree"
+        app:layout_constraintTop_toTopOf="@+id/apple_tree"
+        app:srcCompat="@drawable/apple" />
+
+    <TextView
+        android:id="@+id/main_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="76dp"
+        android:text="@string/start_text"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/apple_tree"
+        app:layout_constraintVertical_bias="0.11" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
