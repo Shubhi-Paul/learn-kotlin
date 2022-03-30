@@ -1,0 +1,66 @@
+package com.example.lemonade
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import com.example.lemonade.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        start()
+    }
+    private fun start() {
+        binding.apply {
+            lemon1.visibility = View.VISIBLE
+            lemon2.visibility = View.VISIBLE
+            lemon3.visibility = View.VISIBLE
+            lemon1.setOnClickListener { squeeze() }
+            lemon2.setOnClickListener { squeeze() }
+            lemon3.setOnClickListener { squeeze() }
+        }
+        binding.textView.text = getString(R.string.selection)
+        binding.imageView.setImageResource(R.drawable.tree)
+    }
+    private fun squeeze(){
+        val count = (3..6).random()
+        binding.apply{
+            textView.text = getString(R.string.squeeze)
+            imageView.setImageResource(R.drawable.sliced_lemon)
+            lemon1.visibility = View.INVISIBLE
+            lemon2.visibility = View.INVISIBLE
+            lemon3.visibility = View.INVISIBLE
+        }
+        squeezeCheck(count)
+    }
+
+    private fun squeezeCheck(count : Int ){
+        var counter = 0
+        binding.imageView.setOnClickListener {
+            counter += 1
+            if (counter == count) {
+                binding.apply{
+                    textView.text = getString(R.string.drink)
+                    imageView.setImageResource(R.drawable.lemonade)
+                }
+                empty()
+            }
+        }
+    }
+    private fun empty() {
+        binding.apply{
+            imageView.setOnClickListener{
+                textView.text = getString(R.string.repeat)
+                imageView.setImageResource(R.drawable.emptyglass)
+                repeat()
+            }
+        }
+
+    }
+    private fun repeat() {
+        binding.imageView.setOnClickListener{start()}
+    }
+}

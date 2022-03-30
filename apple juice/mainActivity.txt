@@ -22,7 +22,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun squeeze() {
             val count = (1..6).random()
-            binding.mainText.text = count.toString()
+            val intent = Intent(this, MainActivity2::class.java).apply {
+            putExtra("squeeze_count", count)
+        }
+        startActivity(intent)
         }
 }
 
