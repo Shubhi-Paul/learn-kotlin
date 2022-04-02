@@ -60,3 +60,5 @@ android
 }
 val intent = Intent(this,SomeActivity::class.java)
 startActivity(intent)
+
+Use the super keyword to call the function that is defined in the parent.
