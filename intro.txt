@@ -62,3 +62,7 @@ val intent = Intent(this,SomeActivity::class.java)
 startActivity(intent)
 
 Use the super keyword to call the function that is defined in the parent.
+
+XML stands for eXtensible Markup Language, which is a way of describing data using a text-based document.
+Android Jetpack
+
