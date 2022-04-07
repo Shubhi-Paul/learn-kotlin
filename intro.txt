@@ -66,3 +66,4 @@ Use the super keyword to call the function that is defined in the parent.
 XML stands for eXtensible Markup Language, which is a way of describing data using a text-based document.
 Android Jetpack
 
+ConstraintLayout is part of Android Jetpack, which contains libraries of code which offers additional functionality on top of the core Android platform. Jetpack has useful functionality you can take advantage of to make building apps easier. You'll recognize this UI component is part of Jetpack because it starts with "androidx".
