@@ -67,3 +67,24 @@ XML stands for eXtensible Markup Language, which is a way of describing data usi
 Android Jetpack
 
 ConstraintLayout is part of Android Jetpack, which contains libraries of code which offers additional functionality on top of the core Android platform. Jetpack has useful functionality you can take advantage of to make building apps easier. You'll recognize this UI component is part of Jetpack because it starts with "androidx".
+
+strings.xml (app > res > values > strings.xml).
+themes.xml (app > res > values > themes > themes.xml).
+https://material.io/resources/color/#!/?view.left=0&view.right=0
+
+#theme of app
+
+add color in string
+add string in theme
+
+
+#app logo
+
+Resource Manager >  Image Asset 
+
+Project window, switch to the Project view.
+(app > src > main > res )
+
+A bitmap image doesn't understand much about the image that it holds, except for the color information at each pixel. On the other hand, a vector graphic knows how to draw the shapes that define an image.  icons can be ideal as vector drawables because they are made up of simple shapes, while a photograph would be harder to describe as a series of shapes. It would be more efficient to use a bitmap asset in that case.
+
+there are certain requirements on these foreground and background layer assets, such as both must be 108dp x 108dp in size. The inner 72 x 72 dp of the icon appears within the masked viewport. The outer 18 dp on each of the 4 sides of the layers is reserved for use by the system UI surfaces to create interesting visual effects, such as parallax or pulsing.
