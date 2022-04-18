@@ -122,8 +122,8 @@ More complex apps in a production environment where you might work with a design
 
 You would update styles.xml file to use @dimen/min_text_height instead of 48dp directly.
 
-<style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView">
-    <item name="android:minHeight">@dimen/min_text_height</item>
-    <item name="android:gravity">center_vertical</item>
-    <item name="android:textAppearance">?attr/textAppearanceBody1</item>
-</style>
+
+When the onKey() method is called, you should call your handleKeyEvent() method and pass along the view and key code arguments. The syntax for writing this out is: view, keyCode, _ -> handleKeyEvent(view, keyCode). This is actually called a lambda expression, but you will learn more about lambdas in a later unit.
+
+VectorDrawables versus bitmap images is the ability to scale and tint them. 
+android:tint="?attr/colorPrimary" for tint

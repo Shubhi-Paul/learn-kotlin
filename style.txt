@@ -1,0 +1,36 @@
+res > values > new > values resource files > styles.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name = "Widget.TipTime.Textview" parent = "Widget.MaterialComponent.Textview" >
+        <item name = "android: minHeight" > 23dp </item>
+        <item name = "android: gravity" > center_vertical </item>
+        <item name = "android: textAppearence">?attr/textAppearanceBody1 </item>
+    </style>
+
+    <style name = "Widget.TipTime.CompoundButton.Switch" parent = "Widget.MaterialComponent.CompoundButton.Switch" >
+        <item name = "android: minHeight" > 23dp </item>
+        <item name = "android: gravity" > center_vertical </item>
+        <item name = "android: textAppearence">?attr/textAppearanceBody1 </item>
+    </style>
+
+    <style name="Widget.TipTime.CompoundButton.RadioButton"
+    parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    </style>
+</resources>
+
+import from another resource file
+
+<style name="Widget.TipTime.TextView" parent="Widget.MaterialComponents.TextView">
+    <item name="android:minHeight">@dimen/min_text_height</item>
+    ... />
+
+    
+Apply the Widget.TipTime.TextView style to the service_question TextView by adding a style attribute on each TextView in activity_main.xml.
+
+<TextView
+    android:id="@+id/service_question"
+    style="@style/Widget.TipTime.TextView"
+    ... />

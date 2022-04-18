@@ -1,0 +1,5 @@
+project > android > app > src > androidTest > java  > com.example.appname > new > kotlin class / file > apptests (class) > return 
+
+Instrumentation tests require an InstrumentationTestRunner, which allows the test to execute on a device or emulator.
+
+On Windows, the hotkey to auto-import is control + enter.
