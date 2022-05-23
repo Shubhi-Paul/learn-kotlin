@@ -127,3 +127,29 @@ When the onKey() method is called, you should call your handleKeyEvent() method 
 
 VectorDrawables versus bitmap images is the ability to scale and tint them. 
 android:tint="?attr/colorPrimary" for tint
+
+RecyclerView
+
+item - one data item of the list to be display
+adapter - takes data and prepares it for the RecyclerView
+viewHolders - a pool of views for recycleView to use and reuse to display 
+recyclerView - views on screen
+
+ConstraintLayout used for multiple child views
+FrameLayout used for holding single child view
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layoutManager="LinearLayoutManager" />
+
+</FrameLayout>

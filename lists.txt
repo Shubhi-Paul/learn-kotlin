@@ -1,0 +1,235 @@
+lists => []
+val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
+val colors = listOf("green", "orange", "blue")
+
+println("List: $numbers")
+
+size = listA.size
+
+numbers.first() returns the first element of the list 
+numbers.last() returns the last element of the list.
+
+check if number in list = listA.contains(abc)
+
+reverse list = listA.reversed()
+
+sort list = listA.sorted()
+
+
+Mutable lists =>
+
+val entrees = mutableListOf<String>()
+        OR
+val entrees: MutableList<String> = mutableListOf()
+
+add element = entrees.add(xyz)
+add list = entrees.addAll(listB)
+
+remove by  element = entrees.remove(xyz)
+remove by index = entrees.removeAt(index_number)
+remove all = entrees.clear()
+
+check if empty = listA.isEmpty()
+
+loop =>
+
+while (index < listA.size) {}
+for (elemnt in listA) {}
+
+length of string = name.length
+
+open class Item(val name: String, val price: Int)
+    xxx class Noodles : Item("Noodles", 10) xxx
+class Noodles : Item("Noodles", 10) {
+   override fun toString(): String {
+       return name
+   }
+}
+    xxx class Vegetables : Item("Vegetables", 5) xxx
+class Vegetables() : Item("Vegetables", 5) {
+   override fun toString(): String {
+       return name
+   }
+}
+fun main() {
+    val noodles = Noodles()
+    val vegetables = Vegetables()
+    println(noodles)
+    println(vegetables)
+}
+----------------------------------------------------------------------------------------------------
+open class Item(val name: String, val price: Int)
+class Noodles : Item("Noodles", 10) {
+   override fun toString(): String {
+       return name
+   }
+}
+class Vegetables(val toppings: List<String>) : Item("Vegetables", 5)  {
+   override fun toString(): String {
+       return name
+   }
+}
+fun main() {
+    val noodles = Noodles()
+    val vegetables = Vegetables(listOf("Cabbage", "Sprouts", "Onion"))
+    println(noodles)
+    println(vegetables)
+}
+-----------------------------------------------------------------------------------------------------
+In Kotlin, the vararg modifier allows you to pass a variable number of arguments of the same type into a function or constructor. In that way, you can supply the different vegetables as individual strings instead of a list.
+
+open class Item(val name: String, val price: Int)
+class Noodles : Item("Noodles", 10) {
+   override fun toString(): String {
+       return name
+   }
+}
+class Vegetables(vararg val toppings: String) : Item("Vegetables", 5) {
+   override fun toString(): String {
+       return name
+   }
+}
+fun main() {
+    val noodles = Noodles()
+    val vegetables = Vegetables("Cabbage", "Sprouts", "Onion")
+    println(noodles)
+    println(vegetables)
+}
+
+_______________________________________________________________________________________________________
+
+open class Item(val name: String, val price: Int)
+class Noodles : Item("Noodles", 10) {
+   override fun toString(): String {
+       return name
+   }
+}
+class Vegetables(vararg val toppings: String) : Item("Vegetables", 5) {
+   override fun toString(): String {
+       return name
+   }
+}
+class Order(val orderNumber: Int) {
+   private val itemList = mutableListOf<Item>()
+
+   fun addItem(newItem: Item) {
+    itemList.add(newItem)
+   }
+
+   fun addAll(newItems: List<Item>) {
+       itemList.addAll(newItems)
+   }
+
+   fun print() {
+    println("Order #${orderNumber}")
+    var total = 0
+    for (item in itemList) {
+        println("${item}: $${item.price}")
+        total += item.price
+    }
+    println("Total: $${total}")
+    }
+}
+fun main() {
+    val order1 = Order(1)
+    order1.addItem(Noodles())
+    order1.print()
+
+    println()
+
+    val order2 = Order(2)
+    order2.addItem(Noodles())
+    order2.addItem(Vegetables())
+    order2.print()
+
+    println()
+
+    val order3 = Order(3)
+    val items = listOf(Noodles(), Vegetables("Carrots", "Beans", "Celery"))
+    order3.addAll(items)
+    order3.print()
+}
+_________________________________________________________________________________________
+
+open class Item(val name: String, val price: Int)
+
+class Noodles : Item("Noodles", 10) {
+    override fun toString(): String {
+        return name
+    }
+}
+
+class Vegetables(vararg val toppings: String) : Item("Vegetables", 5) {
+    override fun toString(): String {
+        if (toppings.isEmpty()) {
+            return "$name Chef's Choice"
+        } else {
+            return name + " " + toppings.joinToString()
+        }
+    }
+}
+
+class Order(val orderNumber: Int) {
+    private val itemList = mutableListOf<Item>()
+
+    fun addItem(newItem: Item): Order {
+        itemList.add(newItem)
+        return this
+    }
+
+    fun addAll(newItems: List<Item>): Order {
+        itemList.addAll(newItems)
+        return this
+    }
+
+    fun print() {
+        println("Order #${orderNumber}")
+        var total = 0
+        for (item in itemList) {
+            println("${item}: $${item.price}")
+            total += item.price
+        }
+        println("Total: $${total}")
+    }
+}
+
+fun main() {
+    val ordersList = mutableListOf<Order>()
+
+    // Add an item to an order
+    val order1 = Order(1)
+    order1.addItem(Noodles())
+    ordersList.add(order1)
+
+    // Add multiple items individually
+    val order2 = Order(2)
+    order2.addItem(Noodles())
+    order2.addItem(Vegetables())
+    ordersList.add(order2)
+
+    // Add a list of items at one time
+    val order3 = Order(3)
+    val items = listOf(Noodles(), Vegetables("Carrots", "Beans", "Celery"))
+    order3.addAll(items)
+    ordersList.add(order3)
+
+    // Use builder pattern
+    val order4 = Order(4)
+        .addItem(Noodles())
+        .addItem(Vegetables("Cabbage", "Onion"))
+    ordersList.add(order4)
+
+    // Create and add order directly
+    ordersList.add(
+        Order(5)
+            .addItem(Noodles())
+            .addItem(Noodles())
+            .addItem(Vegetables("Spinach"))
+    )
+
+    // Print out each order
+    for (order in ordersList) {
+        order.print()
+        println()
+    }
+}

@@ -3,3 +3,22 @@ project > android > app > src > androidTest > java  > com.example.appname > new 
 Instrumentation tests require an InstrumentationTestRunner, which allows the test to execute on a device or emulator.
 
 On Windows, the hotkey to auto-import is control + enter.
+
+
+@RunWith(AndroidJUnit4::class)
+
+class XYZTests {
+
+}
+    @get:Rule()
+    val activity = ActivityScenarioRule(MainActivity::class.java)
+
+    @Test
+    fun ABC{
+    onView(withId(R.id.xyz)
+            .perform(typeText("xyz"))
+            .perform(click())
+            .check(matches(withText(containsString("abc"))))
+            .perform(ViewActions.closeSoftKeyboard())
+    }
+}
