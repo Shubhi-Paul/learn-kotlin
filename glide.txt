@@ -1,0 +1,51 @@
+>> Go to the build.grade file. Add third party dependencies for Glide.
+
+implementation 'com.github.bumptech.glide:glide:4.11.0'    
+annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'   
+
+>> Go to the manifest file and add the dependency for internet connection.<AndroidManifest.xml>
+
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>    
+<uses-permission android:name="android.permission.INTERNET" />   
+
+Activity_main.xml. This XML file contains the code for your Android app:
+
+<?xml version="1.0" encoding="utf-8"?>    
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"    
+   xmlns:app="http://schemas.android.com/apk/res-auto"    
+   xmlns:tools="http://schemas.android.com/tools"    
+   android:layout_width="match_parent"    
+   android:layout_height="match_parent"    
+   tools:context=".MainActivity">    
+   <androidx.appcompat.widget.AppCompatImageView    
+      android:id="@+id/imageview"    
+      android:layout_width="wrap_content"    
+      android:layout_height="wrap_content"    
+      android:src="@drawable/ic_launcher_background"    
+      app:layout_constraintBottom_toBottomOf="parent"    
+      app:layout_constraintLeft_toLeftOf="parent"    
+      app:layout_constraintRight_toRightOf="parent"    
+      app:layout_constraintTop_toTopOf="parent" />    
+</androidx.constraintlayout.widget.ConstraintLayout>    
+
+Main Activity.kt. This Kotlin program is the back-end language for your app:
+ 
+ package com.example.glide  
+import androidx.appcompat.app.AppCompatActivity  
+import android.os.Bundle  
+import com.bumptech.glide.Glide  
+import kotlinx.android.synthetic.main.activity_main.*  
+class MainActivity : AppCompatActivity() {  
+   override fun onCreate(savedInstanceState: Bundle?) {  
+      super.onCreate(savedInstanceState)  
+      setContentView(R.layout.activity_main)  
+      val media = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg"  
+      if (media !== null) {  
+         Glide.with(this)  
+         .load(media)  
+         .into(imageview)  
+         } else {  
+      imageview.setImageResource(R.drawable.ic_launcher_background)  
+      }  
+   }  
+}  
