@@ -1,0 +1,27 @@
+Intent
+
+2 types : implicit & explicit
+
+explicit : highly specific
+    >> exact activity to be launched, often a screen in your own app.
+implicit : abstract
+    >>  tell the system the type of action, such as opening a link, composing an email, or making a phone call, and the system is responsible for figuring out how to fulfill the request.
+
+
+val context = holder.view.context
+val intent = Intent(context, DetailActivity::class.java)
+intent.putExtra("letter", holder.button.text.toString())
+context.startActivity(intent)
+
+
+
+val letterId = intent?.extras?.getString("letter").toString()
+
+If your app tries to access a property or call a function on a null object, the app will crash.To safely access this value, you put a ? after the name.
+
+
+URI 
+Uniform Resource Identifier
+
+>> string that points to a webpage
+    val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")

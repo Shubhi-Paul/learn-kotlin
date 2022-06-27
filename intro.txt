@@ -51,13 +51,25 @@ There are many assertions in the JUnit library. Some common assertions you might
 An app can technically run more than one Kotlin function at once.
 This is possible because of something called threads.
 
+
+build gradle :
+
 android 
 {
-    BuildFeatures
+    buildFeatures
     {
         viewBinding = true
     }
 }
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
 val intent = Intent(this,SomeActivity::class.java)
 startActivity(intent)
 
