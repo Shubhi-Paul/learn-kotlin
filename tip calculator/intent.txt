@@ -23,5 +23,8 @@ If your app tries to access a property or call a function on a null object, the 
 URI 
 Uniform Resource Identifier
 
->> string that points to a webpage
+>>URL (uniform resource location) : string that points to a 
+
+All URLs are URIs, but not all URIs are URLs. Other URIs, for example, an address for a phone number, would begin with tel:, but this is considered a URN or Uniform Resource Name, rather than a URL. The data type used to represent both is called URI.
+    
     val queryUrl: Uri = Uri.parse("${DetailActivity.SEARCH_PREFIX}${item}")
