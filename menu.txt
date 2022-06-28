@@ -1,0 +1,29 @@
+MENU
+
+New > Android Resource File > Resource type : Menu > file name : layout Menu
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto">
+   <item android:id="@+id/action_switch_layout"
+       android:title="@string/action_switch_layout"
+       android:icon="@drawable/ic_linear_layout"
+       app:showAsAction="always" />
+</menu>
+
+
+MainActivity.kt
+
+private fun setIcon(menuItem: MenuItem?) {
+   if (menuItem == null)
+       return
+
+   menuItem.icon =
+       if (isLinearLayoutManager)
+           ContextCompat.getDrawable(this, R.drawable.ic_grid_layout)
+       else ContextCompat.getDrawable(this, R.drawable.ic_linear_layout)
+}
+
+For your app to actually use the menu, you need to override two more methods.
+
+onCreateOptionsMenu: where you inflate the options menu and perform any additional setup
+onOptionsItemSelected: where you'll actually call chooseLayout() when the button is selected.
