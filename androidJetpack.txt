@@ -1,0 +1,58 @@
+Navigation Component / Navigation Graph
+
+fragment >> intent
+A fragment is a reusable piece of UI.
+
+The fragment lifecycle has five states, represented by the Lifecycle.State enum.
+
+INITIALIZED: A new instance of the fragment has been instantiated.
+CREATED: The first fragment lifecycle methods are called. During this state, the view associated with the fragment is also created.
+STARTED: The fragment is visible onscreen but does not have "focus", meaning it can't respond to user input.
+RESUMED: The fragment is visible and has focus.
+DESTROYED: The fragment object has been de-instantiated.
+
+onCreate(): The fragment has been instantiated and is in the CREATED state. However, its corresponding view has not been created yet.
+onCreateView(): This method is where you inflate the layout. The fragment has entered the CREATED state.
+onViewCreated(): This is called after the view is created. In this method, you would typically bind specific views to properties by calling findViewById().
+onStart(): The fragment has entered the STARTED state.
+onResume(): The fragment has entered the RESUMED state and now has focus (can respond to user input).
+onPause(): The fragment has re-entered the STARTED state. The UI is visible to the user
+onStop(): The fragment has re-entered the CREATED state. The object is instantiated but is no longer presented on screen.
+onDestroyView(): Called right before the fragment enters the DESTROYED state. The view has already been removed from memory, but the fragment object still exists.
+onDestroy(): The fragment enters the DESTROYED state.
+
+Each fragment consists of two files—an XML file for the layout and a Kotlin class to display data and handle user interactions.
+
+Jetpack Navigation Component
+
+project-level build.gradle
+
+    buildscript {
+        ext {
+            appcompat_version = "1.2.0"
+            constraintlayout_version = "2.0.2"
+            core_ktx_version = "1.3.2"
+            kotlin_version = "1.3.72"
+            material_version = "1.2.1"
+            nav_version = "2.3.1"
+        }
+
+    #safeArgs
+    dependencies{
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    }
+
+app-level build.gradle
+
+    dependencies{
+        implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+        implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    }
+
+    #safeArgs
+    plugins {
+        id 'com.android.application'
+        id 'kotlin-android'
+        id 'kotlin-kapt'
+        id 'androidx.navigation.safeargs.kotlin'
+    }

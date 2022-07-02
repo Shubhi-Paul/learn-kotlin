@@ -165,3 +165,47 @@ FrameLayout used for holding single child view
         app:layoutManager="LinearLayoutManager" />
 
 </FrameLayout>
+
+Save bundle data
+
+The onSaveInstanceState() method is a callback you use to save any data that you might need if the Activity is destroyed. Think of the onSaveInstanceState() call as a safety measure; it gives you a chance to save a small amount of information to a bundle as your activity exits the foreground.
+
+override fun onSaveInstanceState(outState: Bundle) {
+   super.onSaveInstanceState(outState)
+
+   Log.d(TAG, "onSaveInstanceState Called")
+}
+
+ outState parameter is of type Bundle. A Bundle is a collection of key-value pairs, where the keys are always strings. You can put simple data, such as Int and Boolean values, into the bundle. 
+
+ outState.putInt(KEY_REVENUE, revenue)
+
+SHARING MENU
+
+  private fun onShare() {
+        val shareIntent = ShareCompat.IntentBuilder.from(this)
+                .setText(getString(R.string.share_text, dessertsSold, revenue))
+                .setType("text/plain")
+                .intent
+        try {
+            startActivity(shareIntent)
+        } catch (ex: ActivityNotFoundException) {
+            Toast.makeText(this, getString(R.string.sharing_not_available),
+                    Toast.LENGTH_LONG).show()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.shareMenuButton -> onShare()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+}
+
+get() means this property is "get-only". That means you can get the value, but once assigned (as it is here), you can't assign it to something else.
